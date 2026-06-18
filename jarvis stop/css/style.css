@@ -1,0 +1,286 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('https://images.unsplash.com/photo-1706076463257-20b41d9519f0?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Pixelify Sans', arial, sans-serif;
+    background-color: cadetblue;    
+    line-height: 1.6;
+    color: #333;
+}
+header {
+    background-color:#333;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+}
+nav {
+    display:flex;
+    gap: 5rem;
+    justify-content: center;
+}
+nav a {
+    color:blueviolet;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+nav a:hover {
+    color: #b18585;
+}
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: rgb(98, 107, 107);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+section video {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 2px solid #333;
+    transition: transform 0.3s;
+}
+
+section video {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 2px solid #333;
+    transition: transform 0.3s;
+}
+
+section video:hover {
+    transform: scale(1.02);
+}
+
+
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+body.dark-mode section {
+    background-color: #2a2a2a;
+}
+
+body.dark-mode h1,
+body.dark-mode h2 {
+    color: #fff;
+}
+
+body.dark-mode .progress {
+    background-color: #444;
+}
+
+body.dark-mode button {
+    background-color: #555;
+    color: #fff;
+}
+
+body.dark-mode button:hover {
+    background-color: blueviolet;
+}
+
+
+
+
+.skill-bar {
+    margin-bottom: 1.5rem;
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+
+}
+.progress {
+    background-color: rgb(134, 126, 126);
+    border-radius: 10px;
+    height: 20px;
+    overflow: hidden;
+}
+.progress-bar {
+    background: linear-gradient(90deg, blueviolet, #b18585);
+    height: 100%;
+    border-radius: 10px;
+    width: 0%;
+    transition: width 1.5s ease;
+}
+
+.progress-bar.animate {
+    width: var(--target-width);
+}
+h1, h2 {
+    color:rgb(7, 35, 36);
+    margin-bottom: 1rem;
+}
+.project-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border: 3px solid blueviolet;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 4px 8px rgba(138, 43, 226, 0.3);
+    transition: transform 0.3s;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+.contact-info{ 
+    margin: 2rem 0;
+}
+
+.contact-item {
+    display: flex;
+    align-items:center;
+    gap: 1rem;
+    margin: 1rem 0;
+    font-size: 1.1rem;
+}
+
+.contact-icon {
+    font-size: 1.5rem;
+}
+.contact-item a:hover{
+    text-decoration: underline;
+}
+
+#contact-form {
+    margin-top: 2rem;
+}
+
+#contact-form input,
+#contact-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Pixelify Sans', arial, sans-serif;
+}
+p {
+    margin-bottom: 1rem;
+}
+textarea {
+    width: 100%;
+    padding: 0.5rem;
+    font-family:Arial, Helvetica, sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    min-height: 100px;
+}
+
+button {
+    background-color: rgb(128, 114, 134);
+    color: #1d1b1b;
+    border: 1px solid #ccc;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+    background-color: #b18585;
+    color: #fff;
+}
+
+/* Theme Toggle Button - MUST come after general button styles */
+.theme-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid blueviolet;
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+footer {
+    background-color:#222;
+    color:#fff;
+    text-align:center;
+    padding: 8rem;
+    margin-top: 5rem;
+}
+
+/* Project Grid */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.project-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.project-content {
+    padding: 1.5rem;
+}
+
+.project-content h3 {
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.project-tags {
+    display: flex;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.tag {
+    background-color: blueviolet;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+}
+
+.project-link {
+    color: blueviolet;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.project-link:hover {
+    color: #b18585;
+}
