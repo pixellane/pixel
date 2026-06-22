@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1a0033 0%, #000000 100%);
+            color: white;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        h1 {
+            color: #8b5cf6;
+            margin-bottom: 30px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #8b5cf6;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .btn {
+            background: linear-gradient(45deg, #8b5cf6, #a855f7);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            font-weight: 600;
+        }
+        .status {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .success { background: rgba(0, 255, 0, 0.2); }
+        .error { background: rgba(255, 0, 0, 0.2); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Portfolio Setup Test</h1>
+        
+        <div class="card">
+            <h2>✅ Frontend Working!</h2>
+            <p>Your HTML, CSS, and JavaScript environment is ready.</p>
+        </div>
+
+        <div class="card">
+            <h2>Next Steps:</h2>
+            <div id="backend-status" class="status">
+                🔄 Testing backend connection...
+            </div>
+            <div id="db-status" class="status">
+                🔄 Testing database connection...
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Quick Commands:</h2>
+            <p>Open a terminal and run:</p>
+            <pre style="background: rgba(0,0,0,0.5); padding: 10px; border-radius: 5px; text-align: left;">
+# Start everything at once:
+./start-portfolio.sh
+
+# Or start individually:
+docker-compose up -d     # databases
+cd backend && npm run dev # backend
+cd frontend && npm run dev # frontend</pre>
+        </div>
+
+        <a href="index.html" class="btn">🎨 View Full Portfolio</a>
+    </div>
+
+    <script>
+        // Test backend connection
+        fetch('http://localhost:5000/api/profile')
+            .then(response => response.ok ? response.json() : Promise.reject())
+            .then(data => {
+                document.getElementById('backend-status').innerHTML = '✅ Backend API connected!';
+                document.getElementById('backend-status').className = 'status success';
+                
+                // Test database
+                return fetch('http://localhost:5000/api/skills');
+            })
+            .then(response => response.ok ? response.json() : Promise.reject())
+            .then(data => {
+                document.getElementById('db-status').innerHTML = '✅ Database connected!';
+                document.getElementById('db-status').className = 'status success';
+            })
+            .catch(error => {
+                if (document.getElementById('backend-status').innerHTML.includes('Testing')) {
+                    document.getElementById('backend-status').innerHTML = '❌ Backend not running - start with: cd backend && npm run dev';
+                    document.getElementById('backend-status').className = 'status error';
+                }
+                if (document.getElementById('db-status').innerHTML.includes('Testing')) {
+                    document.getElementById('db-status').innerHTML = '❌ Database not running - start with: docker-compose up -d';
+                    document.getElementById('db-status').className = 'status error';
+                }
+            });
+    </script>
+</body>
+</html>
